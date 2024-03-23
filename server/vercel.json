@@ -42,7 +42,7 @@
     "cleanUrls": true,
     "trailingSlash": true,
     "env": {
-      "PORT": 8001
+      "PORT": "8001"
     }
   }
   
