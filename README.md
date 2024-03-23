@@ -1,15 +1,48 @@
-# Getting Started with Personal Portfolio using MERN Stack
+# Getting Started with installing Node.js
+
+### Open Terminal and copy below command
+
+```
+$ cd ~
+$ curl -sL https://deb.nodesource.com/setup_20.x -o /tmp/nodesource_setup.sh
+```
 
 
-## Configuring backend with Node js
-### Install required packages
+### Inspect the contents of the downloaded script with nano or your preferred text editor
 
+``` 
+$ nano /tmp/nodesource_setup.sh
+```
 
-### `npm start`
+### When you are satisfied that the script is safe to run, exit your editor. Then run the  below script (Optional)
 
+```
+$ sudo bash /tmp/nodesource_setup.sh
+```
 
+### PPA will be added to your configuration. Now, you can install the Node.js with below command
 
-# Getting Started with Create React App
+```
+$ sudo apt install nodejs
+```
+
+### To check the version of Node.js run below code 
+
+```
+$ node -v 
+```
+
+# Installing MongoDB
+
+### First import the MongoDB public GPG key
+
+```
+$ curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+   --dearmor
+```
+
+Create React App
 
 ## Available Scripts
 
@@ -32,3 +65,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
+# cwa_client
