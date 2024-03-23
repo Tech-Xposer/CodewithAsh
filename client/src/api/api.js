@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-const end_point = 'http://localhost:8001/api';
+const end_point = 'http://13.127.229.68/api';
 
 
 const signIn = async (user) => {
