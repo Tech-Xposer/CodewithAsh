@@ -1,0 +1,48 @@
+{
+    "version": 2,
+    "routes": [
+      {
+        "src": "/api/user",
+        "dest": "/api/user"
+      },
+      {
+        "src": "/api/blogs",
+        "dest": "/api/blogs"
+      },
+      {
+        "src": "/api/admin",
+        "dest": "/api/admin"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/"
+      }
+    ],
+    "rewrites": [],
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json;charset=UTF-8"
+          },
+          {
+            "key": "Access-Control-Allow-Credentials",
+            "value": "true"
+          },
+          {
+            "key": "Access-Control-Allow-Headers",
+            "value": "Origin, X-Requested-With, Content-Type, Accept"
+          }
+        ]
+      }
+    ],
+    "functions": { },
+    "cleanUrls": true,
+    "trailingSlash": true,
+    "env": {
+      "PORT": 8001
+    }
+  }
+  
