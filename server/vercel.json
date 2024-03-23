@@ -38,7 +38,6 @@
         ]
       }
     ],
-    "functions": { },
     "cleanUrls": true,
     "trailingSlash": true,
     "env": {
