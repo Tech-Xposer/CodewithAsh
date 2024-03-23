@@ -1,5 +1,11 @@
 {
     "version": 2,
+    "builds": [
+        {
+          "src": "app.js",
+          "use": "@now/node"
+        }
+      ],
     "routes": [
       {
         "src": "/api/user",
@@ -18,7 +24,6 @@
         "dest": "/"
       }
     ],
-    "rewrites": [],
     "headers": [
       {
         "source": "/(.*)",
@@ -37,11 +42,6 @@
           }
         ]
       }
-    ],
-    "cleanUrls": true,
-    "trailingSlash": true,
-    "env": {
-      "PORT": "8001"
-    }
+    ]
   }
   
