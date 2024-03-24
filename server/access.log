@@ -19,3 +19,7 @@ GET /api/user/getuser 3/23/2024 7:37:08 PM
 GET /api/user/getuser 3/23/2024 7:37:14 PM 
 GET /api/user/getuser 3/23/2024 9:55:43 PM 
 GET /api/user/getuser 3/23/2024 9:56:44 PM 
+POST /api/blogs/newblog 3/24/2024 7:24:13 PM 
+POST /api/blogs/newblog 3/24/2024 7:27:46 PM 
+POST /api/blogs/newblog 3/24/2024 7:28:22 PM 
+POST /api/blogs/newblog 3/24/2024 7:30:08 PM 

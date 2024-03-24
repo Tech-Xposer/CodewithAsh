@@ -9,8 +9,8 @@ const restrict = async (req, res, next) => {
             throw new Error('Unauthorized');
         }
         const {uid} = jwt.verify(token.split(' ')[1], process.env.SECRET_KEY);
-        console.log(uid);
-        req.user = uid;
+        const user = await userModel.findById(uid).select('name email role');
+        req.user = user;
         next();
     } catch (error) {
         console.error('Authentication failed:', error);
@@ -21,6 +21,7 @@ const restrict = async (req, res, next) => {
 const restrictTo=(roles = [])=>{
     return (req, res, next) => {
         console.log(req.user);
+
         if (req.user.role && roles.includes(req.user.role)) {
             next();
         } else {
