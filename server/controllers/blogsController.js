@@ -34,7 +34,7 @@ const getBlogs = async (req, res) => {
             data: blogs
         })
     } catch (error) {
-        console.error('Error creating blog post:', error);
+        console.error('Error while fetching blogs:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 }
