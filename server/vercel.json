@@ -1,27 +1,15 @@
 {
     "version": 2,
     "builds": [
-        {
-          "src": "app.js",
-          "use": "@now/node"
-        }
-      ],
+      {
+        "src": "/index.js",
+        "use": "@vercel/node"
+      }
+    ],
     "routes": [
       {
-        "src": "/api/user",
-        "dest": "/api/user"
-      },
-      {
-        "src": "/api/blogs",
-        "dest": "/api/blogs"
-      },
-      {
-        "src": "/api/admin",
-        "dest": "/api/admin"
-      },
-      {
         "src": "/(.*)",
-        "dest": "/"
+        "dest": "/index.js"
       }
     ]
   }
