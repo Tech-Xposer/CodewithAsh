@@ -22,14 +22,8 @@ const createUser = async (req, res) => {
             });
         }
 
-        const user = new userModel()
+        const user = await userModel.create({ name, email, password, phone });
 
-        user.name = name
-        user.email = email
-        user.password = password
-        user.phone = phone
-
-        await user.save();
         console.log(user);
         const token = await jwt.sign(
             { userId: user._id },
@@ -37,7 +31,7 @@ const createUser = async (req, res) => {
             { expiresIn: '10m' }
         );
 
-        const verificationLink = process.env.NODE_ENV=='dev'?`${process.env.HOST}:${process.env.PORT}/api/user/verify/${user._id}/${token}`:`${process.env.HOST}/user/verify/${user._id}/${token}`
+        const verificationLink = process.env.NODE_ENV==='dev'?`${process.env.HOST}:${process.env.PORT}/api/user/verify/${user._id}/${token}`:`${process.env.HOST}/user/verify/${user._id}/${token}`
         const mailContent = {
             subject: 'Email Verification | CodeWithAsh',
             text: 'Please verify your email address with the link below.',
@@ -49,7 +43,7 @@ const createUser = async (req, res) => {
                     <p><h3>Thanks,</h3><h3>Team CWA</h3></p>
                 `
         };
-        const checkMail = await sendEmail(user.email, mailContent);
+        await sendEmail(user.email, mailContent);
         return res.status(201).json({
             status:'SUCCESS',
             message:'user created successfully',
