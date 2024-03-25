@@ -87,3 +87,12 @@ GET /api/blogs 3/25/2024 5:15:24 PM
 GET /api/blogs 3/25/2024 5:15:34 PM 
 POST /api/blogs/newblog 3/25/2024 5:15:38 PM 
 GET /api/blogs 3/25/2024 5:15:44 PM 
+GET /api/blogs 3/25/2024 5:18:14 PM 
+GET /api/blogs 3/25/2024 5:18:15 PM 
+GET /api/blogs 3/25/2024 5:18:17 PM 
+GET /api/blogs 3/25/2024 5:21:28 PM 
+GET /api/blogs 3/25/2024 5:21:34 PM 
+GET /api/blogs/660163e202878cf0020493c7 3/25/2024 5:22:00 PM 
+GET /api/blogs/660163e202878cf0020493c7 3/25/2024 5:23:38 PM 
+GET /api/blogs/660163e202878cf0020493c7 3/25/2024 5:23:56 PM 
+GET /api/blogs/660163e202878cf0020493c7 3/25/2024 5:24:04 PM 

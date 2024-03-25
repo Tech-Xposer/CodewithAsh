@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const BlogCard = (props) => {
   const { blog } = props;
-  const imageSrc = `http://localhost:8001/uploads/${blog.createdBy}/${blog.imageUrl}`;
+  const imageSrc = `https://codewithash.onrender.com/uploads/${blog.createdBy}/${blog.imageUrl}`;
 
   return (
     <div className="max-w-[250px] bg-white border border-gray-200 rounded-lg shadow">
