@@ -1,7 +1,8 @@
 const Blog = require('../models/blogModel');
 const createBlog = async (req, res) => {
     try {
-        const {uid} = req.user;
+        const {_id} = req.user;
+        console.log(req.user);
         const { title, content, permalink, metadescription } = req.body;
         if (!title || !permalink || !metadescription || !content) {
             return res.status(400).json({ error: 'All fields are required' })
@@ -12,7 +13,7 @@ const createBlog = async (req, res) => {
             permalink,
             metadescription,
             imageUrl: req.file.filename,
-            createdBy: uid
+            createdBy: _id
         });
 
         res.status(201).json({

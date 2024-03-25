@@ -20,6 +20,7 @@ import About,
 import Dashboard, { fetchUser } from './components/Admin/Dashboard';
 import Blog from './components/Admin/components/Blog';
 import Messages, { fetchMessage } from './components/Admin/components/Messages';
+import Projects from './components/Projects/Projects';
 
 const App = () => {
   const router = createBrowserRouter(
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="projects" element={<Projects />} />
         <Route path="blogs" element={<Blogs />} />
         <Route path="blogs/:_id" element={<ViewBlog />} />
         <Route path="about" element={<About />} loader={getGitHubProfile} />

@@ -19,7 +19,7 @@ connectDB(MONGO_URI)
 //using middlewares
 app.use(cors(
     {
-        origin: 'http://localhost:3000',
+        origin: ['http://localhost:3000','https://codewithash.onrender.com/api'],
         credentials: true
     }
 ));
