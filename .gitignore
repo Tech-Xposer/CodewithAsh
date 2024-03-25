@@ -4,6 +4,7 @@
 client-secret.json
 server/node_modules
 server/.env
+server/public/uploads
 client/.env
 
 client/node_modules
