@@ -1,19 +1,20 @@
 // importing required modules
-require('dotenv').config({ path: `./config/.env.${process.env.NODE_ENV}` })
+require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const fs = require('fs')
 const connectDB = require('./config/db')
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 const userRoute = require('./routes/user')
 const visitorRoute = require('./routes/visitor')
 const blogRoute = require('./routes/blogs')
 const morgan = require('morgan')
 // creating express app
 const app = express()
+const MONGO_URI = process.env.NODE_ENV === 'dev' ? process.env.MONGO_URI_DEV : process.env.MONGO_URI_PROD
 
 //connect to MongoDB
-connectDB()
+connectDB(MONGO_URI)
 
 //using middlewares
 app.use(cors(
@@ -68,7 +69,7 @@ app.get('/', (req, res) => {
     res.status(200).json({ message: 'Welcome to CodeWithAsh' })
 })
 
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
     console.log(`Environment: ${process.env.NODE_ENV}`);
 });
