@@ -5,7 +5,6 @@ const sendEmail = require("../services/nodeMailer");
 const createUser = async (req, res) => {
     try {
         const { name, email, password, phone } = req.body;
-        console.log(req.body);
         if (!name || !email || !password || !phone) {
             return res.status(400).json({
                 status: "FAILED",
@@ -24,7 +23,6 @@ const createUser = async (req, res) => {
 
         const user = await userModel.create({ name, email, password, phone });
 
-        console.log(user);
         const token = await jwt.sign(
             { userId: user._id },
             process.env.SECRET_KEY,
