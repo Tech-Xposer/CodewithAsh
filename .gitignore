@@ -3,7 +3,8 @@
 # dependencies
 client-secret.json
 server/node_modules
-server/.env
+server/config/.env.dev
+server/config/.env.prod
 
 client/node_modules
 client/.pnp

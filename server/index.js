@@ -1,5 +1,5 @@
 // importing required modules
-require('dotenv').config()
+require('dotenv').config({ path: `./config/.env.${process.env.NODE_ENV}` })
 const express = require('express')
 const cors = require('cors')
 const fs = require('fs')
@@ -68,7 +68,11 @@ app.get('/', (req, res) => {
     res.status(200).json({ message: 'Welcome to CodeWithAsh' })
 })
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
-})
+const server = app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV}`);
+});
 
+// server.on('listening', () => {
+//     console.log(`Server listening on port ${server.address().port}`);
+// });

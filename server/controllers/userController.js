@@ -37,7 +37,7 @@ const createUser = async (req, res) => {
             { expiresIn: '10m' }
         );
 
-        const verificationLink = `http://localhost:${process.env.PORT}/api/user/verify/${user._id}/${token}`;
+        const verificationLink = process.env.NODE_ENV=='dev'?`${process.env.HOST}:${process.env.PORT}/api/user/verify/${user._id}/${token}`:`${process.env.HOST}/user/verify/${user._id}/${token}`
         const mailContent = {
             subject: 'Email Verification | CodeWithAsh',
             text: 'Please verify your email address with the link below.',

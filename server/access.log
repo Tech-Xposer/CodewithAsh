@@ -23,3 +23,14 @@ POST /api/blogs/newblog 3/24/2024 7:24:13 PM
 POST /api/blogs/newblog 3/24/2024 7:27:46 PM 
 POST /api/blogs/newblog 3/24/2024 7:28:22 PM 
 POST /api/blogs/newblog 3/24/2024 7:30:08 PM 
+POST /api/user/signup 3/25/2024 1:20:55 PM 
+POST /api/user/register 3/25/2024 1:21:08 PM 
+POST /api/user/register 3/25/2024 1:23:02 PM 
+POST /api/user/register 3/25/2024 1:23:07 PM 
+POST /api/user/register 3/25/2024 1:23:36 PM 
+POST /api/user/register 3/25/2024 1:24:26 PM 
+POST /api/user/register 3/25/2024 1:41:14 PM 
+POST /api/user/register 3/25/2024 1:45:14 PM 
+POST /api/user/register 3/25/2024 1:45:30 PM 
+GET /api/user/verify/660132a266147d3c9186ab88/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjAxMzJhMjY2MTQ3ZDNjOTE4NmFiODgiLCJpYXQiOjE3MTEzNTQ1MzAsImV4cCI6MTcxMTM1NTEzMH0.BT7ZX0xQJSAIHSBoHhFbv2Ra34h8OXPSOJVedsJB4zo 3/25/2024 1:46:24 PM 
+GET /favicon.ico 3/25/2024 1:46:25 PM 
