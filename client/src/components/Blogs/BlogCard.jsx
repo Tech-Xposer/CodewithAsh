@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 
 const BlogCard = (props) => {
   const { blog } = props;
+  const end_point = process.env.REACT_APP_ENV === 'dev' ?'http://localhost:8001' : 'https://codewithash.onrender.com'
 
-  const imageSrc = `http://localhost:8001/uploads/${blog.createdBy._id}/${blog.imageUrl}`;
+  const imageSrc = `${end_point}/uploads/${blog.createdBy._id}/${blog.imageUrl}`;
 
   return (
     <div className="max-w-[250px] bg-white border border-gray-200 rounded-lg shadow">

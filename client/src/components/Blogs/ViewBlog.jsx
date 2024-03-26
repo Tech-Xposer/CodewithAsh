@@ -4,13 +4,15 @@ import { BookOpen } from 'lucide-react'
 import './blog.css';
 const ViewBlog = () => {
   const blog = useLoaderData();
+
   if (!blog) {
     return <div className='text-center mt-20 m-10 rounded-xl h-screen'>
       <h1 className='text-white'>Page Not Found...</h1>
     </div>;
 
   }
-  const imageSrc = `http://localhost:8001/uploads/${blog.createdBy._id}/${blog.imageUrl}`;
+  const end_point = process.env.REACT_APP_ENV === 'dev' ?'http://localhost:8001' : 'https://codewithash.onrender.com'
+  const imageSrc = `${end_point}/uploads/${blog.createdBy._id}/${blog.imageUrl}`;
   const authorName = blog.createdBy.name 
   return (
     <div className='justify-center mt-20 bg-white m-10 rounded-xl'>
@@ -29,7 +31,8 @@ const ViewBlog = () => {
 
 export default ViewBlog;
 export const getBlog = async (_id) => {
-  const response = await fetch(`http://localhost:8001/api/blogs/${_id}`);
+  const end_point = process.env.REACT_APP_ENV === 'dev' ?'http://localhost:8001/api' : 'https://codewithash.onrender.com/api'
+  const response = await fetch(`${end_point}/blogs/${_id}`);
   const data  = await response.json()
   return data.data
 }
