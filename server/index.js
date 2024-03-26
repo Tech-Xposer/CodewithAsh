@@ -9,6 +9,7 @@ const userRoute = require('./routes/user')
 const visitorRoute = require('./routes/visitor')
 const blogRoute = require('./routes/blogs')
 const morgan = require('morgan')
+const { restrict, restrictTo } = require('./middlewares/auth')
 // creating express app
 const app = express()
 const MONGO_URI = process.env.NODE_ENV === 'dev' ? process.env.MONGO_URI_DEV : process.env.MONGO_URI_PROD
@@ -63,7 +64,7 @@ app.use((err, req, res, next) => {
   });
 
 //private routes
-app.use('/api/admin', require('./routes/admin'));
+app.use('/api/admin', restrict,restrictTo('admin'),require('./routes/admin'));
 
 app.get('/', (req, res) => {
     res.status(200).json({ message: 'Welcome to CodeWithAsh' })

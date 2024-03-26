@@ -1,5 +1,5 @@
 const Contact = require('../models/contactModel')
-
+const Blog = require('../models/blogModel');
 const getMessages = async (req, res) => {
     try {
         const contacts = await Contact.find({}).sort({ date: -1 })
@@ -36,4 +36,16 @@ const deleteMessage = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 }
-module.exports = {getMessages, getMessage, deleteMessage}
+const deleteBlog = async (req, res) => {
+    try {
+        const blog = await Blog.findByIdAndDelete(req.params._id)
+        return res.status(200).json({
+            status: "SUCCESS",
+            data: blog
+        })
+    } catch (error) {
+        console.error('Error creating blog post:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}
+module.exports = { getMessages, getMessage, deleteMessage, deleteBlog }

@@ -3,8 +3,7 @@ import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
-  Route,
-  redirect
+  Route
 } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './components/Home/Home';
@@ -12,7 +11,7 @@ import Login from './components/login/Login';
 import Signup from './components/signup/Signup';
 import Contact from './components/Contact/Contact';
 import Blogs from './components/Blogs/Blogs';
-import ViewBlog from './components/Blogs/ViewBlog';
+import ViewBlog, { getBlog } from './components/Blogs/ViewBlog';
 import About,
 {
   getGitHubProfile
@@ -20,7 +19,7 @@ import About,
 import Dashboard, { fetchUser } from './components/Admin/Dashboard';
 import Blog from './components/Admin/components/Blog';
 import Messages, { fetchMessage } from './components/Admin/components/Messages';
-import Projects from './components/Projects/Projects';
+import Projects, { fetchProjects } from './components/Projects/Projects';
 
 const App = () => {
   const router = createBrowserRouter(
@@ -30,13 +29,14 @@ const App = () => {
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="projects" element={<Projects />} />
+        <Route path="projects" element={<Projects />} loader={fetchProjects}/>
         <Route path="blogs" element={<Blogs />} />
-        <Route path="blogs/:_id" element={<ViewBlog />} />
+        <Route path="blogs/:_id" element={<ViewBlog />} loader={({params})=>getBlog(params._id)}/>
         <Route path="about" element={<About />} loader={getGitHubProfile} />
         {<Route path='/admin' element={<Dashboard />} loader={fetchUser} >
+          <Route path='' element={<Blog/>}/>
           <Route path='blog' element={<Blog/>}/>
-          <Route path='messages' element={<Messages/>} loader={fetchMessage}/>
+          <Route path='messages' element={<Messages/>} />
         </Route>}
       </Route>
     )

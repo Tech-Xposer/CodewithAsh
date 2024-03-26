@@ -3,14 +3,14 @@ import logo from '../../images/logo.png'
 
 const Footer = () => {
   return (
-    <footer className='text-center justify-center text-white bottom-0  w-full bg-black/50'>
+    <footer className='text-center justify-center text-white   w-full bg-black/50  absolute'>
         <section>
           <img src={logo} alt="" className='w-52 m-10'/>
         </section>
         <section>
 
         </section>
-        <h1>Copyright &copy; 2023</h1>
+        <h3>Ashutosh Sharma | Copyright &copy; 2023</h3>
     </footer>
   )
 }

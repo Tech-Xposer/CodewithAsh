@@ -2,7 +2,6 @@ const Blog = require('../models/blogModel');
 const createBlog = async (req, res) => {
     try {
         const {_id} = req.user;
-        console.log(req.user);
         const { title, content, permalink, metadescription } = req.body;
         if (!title || !permalink || !metadescription || !content) {
             return res.status(400).json({ error: 'All fields are required' })
@@ -29,7 +28,7 @@ const createBlog = async (req, res) => {
 const getBlogs = async (req, res) => {
     try {
 
-        const blogs = await Blog.find({}).sort({ date: -1 })
+        const blogs = await Blog.find({}).sort({ date: -1 }).populate('createdBy', 'name')
         return res.status(200).json({
             status: "SUCCESS",
             data: blogs
@@ -41,8 +40,8 @@ const getBlogs = async (req, res) => {
 }
 
 const getBlogsByUser = async (req, res) => {
-    const {uid} = req.user
-    const blogs = await Blog.find({ createdBy: uid }).sort({ date: -1 }).populate('createdBy')
+    const {_id} = req.user
+    const blogs = await Blog.find({ createdBy: _id }).sort({ date: -1 }).populate('createdBy', 'name')
     return res.status(200).json({
         status: "SUCCESS",
         data: blogs

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // const end_point = 'https://codewithash.onrender.com/api'
 const end_point = process.env.REACT_APP_ENV === 'dev' ?'http://localhost:8001/api' : 'https://codewithash.onrender.com/api'
-console.log(process.env.HOST_DEV);
+console.log(process.env.REACT_APP_ENV);
 
 
 const signIn = async (user) => {

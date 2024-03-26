@@ -32,23 +32,23 @@ const Header = () => {
                 <li><NavLink className="cursor-pointer transform transition-transform hover:scale-110 hover:text-gray-400 select-none" to={'/blogs'}>
                     Blogs</NavLink></li>
             </ul>
-            <ul className="flex sm:space-x-2 md:space-x-4 mx-5 items-center">
-                <li><NavLink className="cursor-pointer transform transition-transform hover:scale-125 " to={'https://www.linkedin.com/in/asharma73/'} target='_blank' >
+            <ul className="flex sm:space-x-2 md:space-x-4 mx-5 items-center ">
+                <NavLink className="cursor-pointer transform transition-transform hover:scale-125 " to={'https://www.linkedin.com/in/asharma73/'} target='_blank' >
                     <Linkedin color="#fff" />
                 </NavLink>
-                </li>
-                <li><NavLink className="cursor-pointer transform transition-transform hover:scale-125" to={'https://www.instagram.com/dev.ash3'} target='_blank'>
+            
+                <NavLink className="cursor-pointer transform transition-transform hover:scale-125" to={'https://www.instagram.com/dev.ash3'} target='_blank'>
                     <Instagram color='#ff00ae' />
                 </NavLink>
-                </li>
-                <li><NavLink className="cursor-pointer transform transition-transform hover:scale-125" to={'https://github.com/Tech-Xposer/'} target="_blank">
+            
+                <NavLink className="cursor-pointer transform transition-transform hover:scale-125" to={'https://github.com/Tech-Xposer/'} target="_blank">
                     <Github color='#E6EDF3' />
                 </NavLink>
-                </li>
-                <li><NavLink className="cursor-pointer transform transition-transform hover:scale-125">
+            
+                <NavLink className="cursor-pointer transform transition-transform hover:scale-125">
                     <Facebook color="#0A66C2" />
                 </NavLink>
-                </li>
+            
                 <li>
                     {
                         isAuthenticated ? <NavLink to={'/login'} className=

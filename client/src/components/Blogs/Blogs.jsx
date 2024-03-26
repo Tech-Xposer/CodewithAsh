@@ -11,7 +11,6 @@ const Blogs = () => {
         const fetchData = async () => {
             try {
                 const res = await getBlogs();
-                console.log(res);
                 setData(res.data);
                 setLoading(false);
             } catch (error) {

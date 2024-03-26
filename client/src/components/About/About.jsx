@@ -18,7 +18,7 @@ const About = () => {
 export default About
 
 export const getGitHubProfile = async () => {
-  const response = await fetch('https://api.github.com/users/tech-Xposer')
+  const response = await fetch('https://api.github.com/users/Tech-Xposer')
   const data = await response.json()
   return data
 }
