@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useState } from 'react'
 import SideNavbar from '../Sidebar/Sidebar'
 import { Outlet, redirect } from 'react-router-dom'
+import { doLogin, getToken } from '../../auth/auth'
 
 const Dashboard = () => {
   useLayoutEffect(() => {
@@ -19,11 +20,12 @@ const Dashboard = () => {
 export default Dashboard
 
 export const fetchUser = async () => {
-  const token = localStorage.getItem('token')
+  const end_point = process.env.REACT_APP_ENV === 'dev' ?'http://localhost:8001/api' : 'https://codewithash.onrender.com/api'
+  const token = getToken()
   if (!token) {
     throw redirect('/login');
   }
-  const res = await fetch('http://localhost:8001/api/user/getuser', {
+  const res = await fetch(`${end_point}/user/getuser`, {
     headers: {
       'authorization': `Bearer ${token}`
     }
@@ -31,7 +33,7 @@ export const fetchUser = async () => {
   const user = await res.json()
   localStorage.setItem('role', user.role)
   localStorage.setItem('user_name', user.name)
-
+  doLogin(user)
 
   if (token && user.role === 'admin') {
     return true;

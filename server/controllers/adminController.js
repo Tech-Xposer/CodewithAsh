@@ -1,5 +1,6 @@
 const Contact = require('../models/contactModel')
 const Blog = require('../models/blogModel');
+const fs = require('fs')
 const getMessages = async (req, res) => {
     try {
         const contacts = await Contact.find({}).sort({ date: -1 })
@@ -39,6 +40,9 @@ const deleteMessage = async (req, res) => {
 const deleteBlog = async (req, res) => {
     try {
         const blog = await Blog.findByIdAndDelete(req.params._id)
+        const {createdBy} = blog
+        const {imageUrl} = blog
+        fs.rmSync(`./public/uploads/${createdBy}/${imageUrl}`, { recursive: true, force: true })
         return res.status(200).json({
             status: "SUCCESS",
             data: blog

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { signIn } from '../../api/api'
 import {toast, ToastContainer} from 'react-toastify'
 import { useNavigate} from 'react-router-dom'
+import { setToken } from '../../auth/auth'
 const Login = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -22,7 +23,7 @@ const Login = () => {
     const res = await signIn(formData)
     if (res) {
       toast.success('Logged In Successfully');
-      localStorage.setItem('token', res.token)
+      setToken(res.token)
       setFormData({
         email: '',
         password: ''

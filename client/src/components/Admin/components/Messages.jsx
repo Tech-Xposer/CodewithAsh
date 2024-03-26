@@ -3,11 +3,11 @@ import MessageCard from './MessageCard';
 
 const Messages = () => {
     const [messages, setMessages] = useState([]);
-
+    const end_point = process.env.REACT_APP_ENV === 'dev' ?'http://localhost:8001/api' : 'https://codewithash.onrender.com/api'
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const response = await fetch('http://localhost:8001/api/admin/messages', {
+                const response = await fetch(`${end_point}/admin/messages`, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('token')}`
                     }

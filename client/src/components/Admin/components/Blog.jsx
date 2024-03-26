@@ -5,6 +5,7 @@ import Card from './Card';
 const Blog = () => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
+    const end_point = process.env.REACT_APP_ENV === 'dev' ?'http://localhost:8001/api' : 'https://codewithash.onrender.com/api'
 
     useEffect(() => {
         fetchBlogs();
@@ -12,7 +13,7 @@ const Blog = () => {
 
     const fetchBlogs = async () => {
         try {
-            const response = await fetch('http://localhost:8001/api/blogs');
+            const response = await fetch(`${end_point}/blogs`);
             const data = await response.json();
             setBlogs(data.data);
             setLoading(false);
@@ -26,7 +27,7 @@ const Blog = () => {
 
     const deleteBlog = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8001/api/admin/blog/${id}`, {
+            const response = await fetch(`${end_point}/admin/blog/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
